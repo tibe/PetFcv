@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+    <persistence-unit name="com.fcv_PetFcv_war_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <properties>
+            
+            
+            <!--      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/tiberius"/>
+      -->
+      
+    <!--      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.0.20:3306/tiberius"/>-->
+      
+      
+      
+<!--      <property name =" hibernate.dialect " value ="org.hibernate.dialect.PostgreSQLDialect "/>
+
+<   property name =" javax.persistence.jdbc.driver " value ="org.postgresql.Driver"/>
+<property name =" javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/livraria"/> 
+      
+            -->
+            
+            <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/petFcv"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect"/>
+    
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="root"/>
+            
+            
+            
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.use_sql_comments" value="false"/>
+            <property name="hibernate.jdbc.wrap_result_sets" value="false"/>
+            <property name="hibernate.hibernate.cache.use_query_cache" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+      
+        </properties>
+    </persistence-unit>
+</persistence>

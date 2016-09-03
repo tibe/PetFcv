@@ -1,0 +1,146 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 14/05/2014, 18:57:04
+    Author     : tibe
+*/
+/*
+*/
+
+
+body {
+    margin: 0;
+    font-size: 10px!important;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.ui-dialog.ui-widget-content .ui-dialog-content {
+    font-size: 12px;
+}
+
+/* PANELGRID */
+.ui-panelgrid.panelgrid-noborder .ui-grid-responsive {
+    border: none;
+}
+
+/*.ui-widget {
+    font-size: 11px;
+}*/
+
+input, textarea {
+    text-transform: uppercase !important;    
+}
+
+label {   
+    font-weight: bold;  
+    text-transform: capitalize;
+}
+
+/*//ajuste para tab*/ 
+.ui-tabs .ui-tabs-panel{    
+    padding: 1em 0.5em;
+}
+
+/*.ui-widget div{  
+    column-width: 200px      
+} */
+
+/*ui-widget.input.grande{    
+    height: 100%;
+}*/
+
+/*Padão input
+.input-smal{
+    width: 80px !important; 
+}
+.input-normal{
+    width: 150px !important; 
+}
+Padão input
+.input-medum {
+    width: 293px !important; 
+}
+Padão input
+.input-big{
+    width: 580px !important; 
+}*/
+
+/* alinha os seletc (combobox)
+.selectMenu  {
+    display: inline-block;
+    vertical-align: top;
+}*/
+/*.selectoneradio   {
+    display: inline-block;
+    vertical-align: top;
+}*/
+/*
+.input-group {
+    display: inline-block;
+    margin: 5px 5px 5px 0px;
+}*/
+
+/*.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 3px;
+    text-transform: capitalize;
+}*/
+
+
+/*
+.no-radius-right {
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}*/
+
+/*.no-radius-left {
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+}*/
+
+/*usado no gif de load */
+.centro {
+    width:100px;
+    height:100px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-top:-50px;
+    margin-left:-50px;
+    z-index: 1;
+}
+
+
+/* usado no menu bar*/
+.ui-layout-north {
+    z-index:5 !important;
+    overflow:visible !important;
+}
+
+/*usado no menu bar para deixar o menu visil ensima dos outros componentes*/
+.ui-layout-north .ui-layout-unit-content {
+    overflow: visible!important;
+}
+
+
+/*Icones do head do datatable export*/
+.ui-widget-content a{
+    float: right;
+    alignment-adjust: central;
+}  
+
+.logo{
+    max-width:45px;
+    max-height:45px;
+}
+
+/*.chkbox-box  {
+    vertical-align: -5px
+}*/
+
+
+

@@ -1,0 +1,100 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pe="http://primefaces.org/ui/extensions"
+                template="/WEB-INF/template/template.xhtml">
+
+    <ui:define name="conteudo">
+        <p:tabView id="tabview"   >
+            <p:tab id="tabCadastro" title="Cadastro" >
+                <h:form id="frmCadastro">
+                    <div class="ui-fluid">
+
+                        <p:panelGrid columns="2" layout="grid" 
+                                     styleClass="panelgrid-noborder"
+                                     columnClasses="ui-grid-col-0, ui-grid-col-4">
+
+                            <p:outputLabel value="Tipo Produto:" for="nmTipoProduto" />
+                            <p:inputText id="nmTipoProduto" value="#{tipoProdutoController.tipoProduto.nmTipoProduto}"
+                                         title="NmTipoProduto" required="true" 
+                                         placeholder="Tipo do Produto">
+                                <pe:keyFilter regEx="/[a-z A-Z]/i"/>  
+                            </p:inputText>
+
+                        </p:panelGrid>
+                    </div>
+
+                    <br/>
+
+                    <p:commandButton value="Cancelar" icon="ui-icon-cancel" />
+                    <p:hotkey bind="esc" action="#{tipoProdutoController.limpar()}" process="@this" 
+                              update="@form" >
+                        <p:resetInput target="@form"/>
+                    </p:hotkey>
+
+                    <p:commandButton value="#{tipoProdutoController.insert  ? 'Gravar':'Alterar'}" icon="ui-icon-disk"
+                                     actionListener="#{tipoProdutoController.salvar()}"
+                                     update="@form "/>
+
+                </h:form>
+            </p:tab>
+
+            <p:tab id="tabConsulta" title="Consulta" >
+
+
+                <h:form id="frmConsulta">
+                    <div class="ui-fluid">    
+
+                        <p:panelGrid columns="1" layout="grid" 
+                                     styleClass="panelgrid-noborder"
+                                     columnClasses="ui-grid-col-2 ">
+
+                            <p:commandButton id="btnPesquisa" value="Pesquisar" icon="ui-icon-search"
+                                             actionListener="#{tipoProdutoController.pesquisar()}"
+                                             update="tabelaConsulta" />
+
+                        </p:panelGrid>
+                    </div>
+
+                    <p:dataTable id="tabelaConsulta" var="item"  value="#{tipoProdutoController.listTipoProdutos}"  
+                                 selectionMode="single" rowKey="#{item.id}" 
+                                 resizableColumns="true" 
+                                 draggableColumns="true" reflow="true" >
+
+                        <p:column headerText="Tipo Produto"  sortBy="#{item.nmTipoProduto}">                                           
+                            <h:outputText value="#{item.nmTipoProduto}"/>
+                        </p:column>
+
+
+                        <p:column width="50"  headerText="Operações">
+                            <p:commandButton title="Editar" icon="ui-icon-pencil"   update="tabview" >
+                                <f:setPropertyActionListener value="#{item}" target="#{tipoProdutoController.tipoProduto}"   />
+                            </p:commandButton>
+
+                            <p:commandButton  title="Excluir" oncomplete="PF('dlgConfirmaExclusao').show()" icon="ui-icon-trash" 
+                                              process="@this @form" update="@form" >
+                                <f:setPropertyActionListener value="#{item}" target="#{tipoProdutoController.tipoProduto}" />                              
+                            </p:commandButton>
+                        </p:column>
+
+                    </p:dataTable>  
+
+                    <p:confirmDialog id="confirmDialog"  appendTo="@(body)" 
+                                     message="Tem certeza que deseja excluir o registro? " 
+                                     header="Aviso de Exclusão"  severity="alert" 
+                                     widgetVar="dlgConfirmaExclusao"
+                                     closeOnEscape="true" >  
+                        <p:commandButton id="confirm" value="Sim" onclick="PF('dlgConfirmaExclusao').hide();"  
+                                         actionListener="#{tipoProdutoController.excluir()}" update="@form"
+                                         process="@this tabelaConsulta confirmDialog"/>  
+
+                        <p:commandButton id="decline" value="Não"  onclick="PF('dlgConfirmaExclusao').hide();" />   
+                    </p:confirmDialog>
+
+                </h:form>
+            </p:tab>
+        </p:tabView>
+    </ui:define>
+</ui:composition>
